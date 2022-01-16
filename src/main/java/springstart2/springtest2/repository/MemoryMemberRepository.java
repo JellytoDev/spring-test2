@@ -1,8 +1,10 @@
 package springstart2.springtest2.repository;
 
+import org.springframework.stereotype.Repository;
 import springstart2.springtest2.domain.Member;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository{
 

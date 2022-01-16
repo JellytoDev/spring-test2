@@ -1,9 +1,11 @@
 package springstart2.springtest2.repository;
 
+import org.springframework.stereotype.Repository;
 import springstart2.springtest2.domain.Member;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface MemberRepository {
     Member save(Member member);

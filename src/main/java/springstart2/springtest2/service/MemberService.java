@@ -1,5 +1,6 @@
 package springstart2.springtest2.service;
 
+import org.springframework.stereotype.Service;
 import springstart2.springtest2.domain.Member;
 import springstart2.springtest2.repository.MemberRepository;
 import springstart2.springtest2.repository.MemoryMemberRepository;
@@ -7,11 +8,17 @@ import springstart2.springtest2.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+// 이거 넣어줘야 순수한 자바 클래스가 아닌 container로부터 가져올수 있음.
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-/*
-    회원가입
- */
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    /*
+        회원가입
+     */
     public Long join(Member member) {
         // 같은 이름이 있는 중복 회원 x
         // Optional을 바로 반환하는게 좋지는 않다. 바로 ifpresent 사용
